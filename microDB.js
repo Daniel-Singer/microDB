@@ -2,6 +2,7 @@
 
 function Schema(data){
   this.data = data;
+  this.data._id = Date.now();
 }
 
 function microDB(DB_NAME){

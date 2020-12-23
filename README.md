@@ -14,5 +14,22 @@ const DB = new microDB('Users');
 ```javascript
 DB.init();
 ```
+After you have run the initializing commad, it is time to post some data to it.
+
+### Create Schema
+
+If you are having a more complex DataStructure, i would highly recommend createing a Schema. An id will automatically be created and added to your data.
+
+```javascript
+const User = new Schema({
+  name: 'User',
+  age : 22
+})
+```
+Next thing, ude the .push() method to store your data in microDB
+
+```javascript
+DB.push(User)
+```
 
 

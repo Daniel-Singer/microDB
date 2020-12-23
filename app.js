@@ -5,7 +5,6 @@ const db = new microDB('Users');
 db.init();
 
 const User = new Schema({
-  _id: Date.now(),
   name: 'Daniel',
   age: 35
 })
