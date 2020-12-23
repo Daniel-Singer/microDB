@@ -22,14 +22,31 @@ If you are having a more complex data tructure, i would highly recommend creatin
 
 ```javascript
 const User = new Schema({
-  name: 'User',
+  name: 'John',
   age : 22
 })
 ```
-Next thing, use the **.push()** method to store your data in microDB
+Next thing, use the **.post()** method to store your data in microDB
 
 ```javascript
-DB.push(User)
+DB.post(User)
 ```
+It is possible to access your stored data with one of the following methods:
+
+```javascript
+DB.getAll();
+```
+**.getAll()** returns all data within this instance of microDB
+
+```javascript
+DB.getItemBy(property,value);
+```
+To show a quick example:
+
+```javascript
+const User = DB.getItmeBy('name', 'John');
+// returns { name: 'John', age: 22 }
+```
+
 
 
