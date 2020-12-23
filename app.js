@@ -5,8 +5,8 @@ const db = new microDB('Users');
 db.init();
 
 const User = new Schema({
-  name: 'Daniel',
-  age: 35
+  name: 'Petra',
+  age: 32
 })
 
 document.querySelector('#post-btn').addEventListener('click', (e) => {
@@ -20,3 +20,8 @@ document.querySelector('#delete-db').addEventListener('click', (e) => {
 })
 
 db.getAll();
+
+// property value
+
+let item = db.getItemBy('name', 'Petra');
+console.log(item)

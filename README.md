@@ -26,7 +26,7 @@ const User = new Schema({
   age : 22
 })
 ```
-Next thing, ude the .push() method to store your data in microDB
+Next thing, use the .push() method to store your data in microDB
 
 ```javascript
 DB.push(User)
