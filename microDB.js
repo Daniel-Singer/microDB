@@ -1,9 +1,5 @@
 'use strict';
 
-function Schema(data) {
-  this.data = data;
-  this.data._id = Date.now();
-}
 
 function microDB(DB_NAME) {
   this.DB_NAME = DB_NAME;

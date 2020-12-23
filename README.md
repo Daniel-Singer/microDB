@@ -16,27 +16,18 @@ DB.init();
 ```
 After you have run the initializing command, it is time to post some data to it.
 
-#### Create Schema
-
-If you are having a more complex data tructure, i would highly recommend creating a Schema. An **_id** will automatically be created and added to your data.
-
-```javascript
-const User = new Schema({
-  name: 'John',
-  age : 22
-})
-```
-Next thing, use the **.post()** method to store your data in microDB
+Use the **.post()** method to store your data in microDB
 
 ```javascript
 DB.post(User)
 ```
 It is possible to access your stored data with one of the following methods:
+**.getAll()** returns all data within this instance of microDB
 
 ```javascript
 DB.getAll();
 ```
-**.getAll()** returns all data within this instance of microDB
+**getItemBy** needs two arguments, the property and it´s name of the item you are searching for
 
 ```javascript
 DB.getItemBy(property,value);
@@ -44,7 +35,7 @@ DB.getItemBy(property,value);
 To show a quick example:
 
 ```javascript
-const User = DB.getItmeBy('name', 'John');
+const User = DB.getItemBy('name', 'John');
 // returns { name: 'John', age: 22 }
 ```
 
