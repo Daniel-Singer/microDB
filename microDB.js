@@ -38,8 +38,9 @@ function microDB(DB_NAME) {
 
   this.post = function (item) {
     if (DB_EXISTS) {
+      item._id = Date.now();
       const DB_DATA = load();
-      DB_DATA.push(item.data);
+      DB_DATA.push(item);
       store(DB_DATA);
       return;
     }
