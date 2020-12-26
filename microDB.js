@@ -69,6 +69,17 @@ function microDB(DB_NAME) {
     console.error('No microDB found')
   };
 
+  // remove single item 
+
+  this.remove = function(property, value){
+    const Items = load();
+    Items.forEach((item) => {
+      if(item[property] === value){
+        Items.splice(Items.indexOf(item), 1);
+      }
+    })
+    store(Items)
+  }
   // delete DB
 
   this.removeAll = function () {
