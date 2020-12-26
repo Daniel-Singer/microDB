@@ -76,9 +76,10 @@ function microDB(DB_NAME) {
     Items.forEach((item) => {
       if(item[property] === value){
         Items.splice(Items.indexOf(item), 1);
+        return;
       }
     })
-    store(Items)
+    store(Items);
   }
   // delete DB
 
