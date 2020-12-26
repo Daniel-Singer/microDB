@@ -15,11 +15,22 @@ const DB = new microDB('Users');
 DB.init();
 ```
 After you have run the initializing command, it is time to post some data to it.
+In this example case, a 'User' Object was created and then stored.
+
+```javascript
+const User = function(name, age){
+  this.name = name;
+  this.age = age;
+};
+
+const John = new User('John', '45');
+```
+
 
 Use the **.post()** method to store your data in microDB
 
 ```javascript
-DB.post(User)
+DB.post(John)
 ```
 It is possible to access your stored data with one of the following methods:
 **.getAll()** returns all data within this instance of microDB
