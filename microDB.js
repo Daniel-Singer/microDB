@@ -1,7 +1,7 @@
 'use strict';
 
 
-function microDB(DB_NAME) {
+const microDB = (DB_NAME)=> {
   this.DB_NAME = DB_NAME;
 
   // initialize DB
@@ -10,7 +10,7 @@ function microDB(DB_NAME) {
 
   let DB_EXISTS = localStorage.getItem(DB_NAME) ? true : false;
 
-  this.init = function () {
+  this.init =  () => {
     // exists is true or false depending if DB exists in localStorage already
     let exists = localStorage.getItem(DB_NAME) ? true : false;
     // initialize DB if not in localStorage already
@@ -23,20 +23,20 @@ function microDB(DB_NAME) {
 
   // stringify and store data
 
-  function store(item) {
+  const store = (item) => {
     localStorage.setItem(DB_NAME, JSON.stringify(item));
   }
 
 
   // load and parse data
 
-  function load(item = DB_NAME) {
+  const load = (item = DB_NAME)=> {
     return JSON.parse(localStorage.getItem(item));
   }
 
   // post data to DB
 
-  this.post = function (item) {
+  this.post =  (item) =>{
     if (DB_EXISTS) {
       item._id = Date.now();
       const DB_DATA = load();
@@ -49,7 +49,7 @@ function microDB(DB_NAME) {
 
   // get single item
 
-  this.getItemBy = function (property, value) {
+  this.getItemBy =  (property, value)=> {
     let result;
     let data = load();
     data.forEach((set) =>{
@@ -62,7 +62,7 @@ function microDB(DB_NAME) {
   }
   // receive data from DB
 
-  this.getAll = function () {
+  this.getAll =  () =>{
     if (DB_EXISTS) {
       return load();
     }
@@ -71,7 +71,7 @@ function microDB(DB_NAME) {
 
   // remove single item 
 
-  this.remove = function(property, value){
+  this.remove = (property, value)=>{
     const Items = load();
     Items.forEach((item) => {
       if(item[property] === value){
@@ -83,7 +83,7 @@ function microDB(DB_NAME) {
   }
   // delete DB
 
-  this.removeAll = function () {
+  this.removeAll =  () =>{
     localStorage.removeItem(DB_NAME);
     this.init();
     console.info('All data successfully removed')
